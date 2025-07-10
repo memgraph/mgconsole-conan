@@ -1,0 +1,11 @@
+[settings]
+arch = {{ {"arm64": "armv8"}.get(platform.machine(), platform.machine()) }}
+build_type = {{ os.getenv("BUILD_TYPE") }}
+compiler=clang
+compiler.cppstd=gnu20
+compiler.libcxx=libstdc++11
+compiler.version=20
+os = {{ {"Darwin": "Macos"}.get(platform.system(), platform.system()) }}
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
