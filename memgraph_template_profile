@@ -1,3 +1,4 @@
+
 [settings]
 arch = {{ {"arm64": "armv8"}.get(platform.machine(), platform.machine()) }}
 build_type = {{ os.getenv("BUILD_TYPE") }}
@@ -9,3 +10,4 @@ os = {{ {"Darwin": "Macos"}.get(platform.system(), platform.system()) }}
 
 [conf]
 tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={"c": "/opt/toolchain-v7/bin/clang", "cpp": "/opt/toolchain-v7/bin/clang++"}
