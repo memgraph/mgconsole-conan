@@ -55,7 +55,6 @@ class Mgconsole(ConanFile):
     def generate(self):
         tc = CMakeToolchain(self)
         tc.variables["BUILD_TESTING"] = self.options.build_tests
-        tc.variables["MGCONSOLE_STATIC_SSL"] = False
         tc.generate()
         deps = CMakeDeps(self)
         deps.generate()
