@@ -74,5 +74,5 @@ class Mgconsole(ConanFile):
     def package_info(self):
         self.cpp_info.libs = ["mgconsole"]
 
-        self.cpp_info.set_property("cmake_file_name", "librdtsc")
+        self.cpp_info.set_property("cmake_file_name", "mgconsole")
         self.cpp_info.set_property("cmake_target_name", "mgconsole::mgconsole")
