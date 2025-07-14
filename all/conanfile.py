@@ -4,8 +4,6 @@ from conan.tools.files import apply_conandata_patches, export_conandata_patches,
 
 import os
 
-# TODO: (andi) Test that shared library version works
-
 
 class Mgconsole(ConanFile):
     name = "mgconsole"
@@ -15,7 +13,7 @@ class Mgconsole(ConanFile):
     url = "https://github.com/conan-io/conan-center-index"
     homepage = "https://github.com/memgraph/mgconsole.git"
     topics = ("mgconsole", "memgraph")
-    package_type = "library"
+    package_type = "application"
     settings = "os", "arch", "compiler", "build_type"
     options = {
             "shared": [True, False],
@@ -71,7 +69,6 @@ class Mgconsole(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["mgconsole"]
-
+        self.cpp_info.bindirs = ["bin"]
         self.cpp_info.set_property("cmake_file_name", "mgconsole")
         self.cpp_info.set_property("cmake_target_name", "mgconsole::mgconsole")
